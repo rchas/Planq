@@ -1,7 +1,7 @@
 peers="56e4d0fb7b7e95e9d8f1e19ef106ef98767c4a33@65.109.69.240:34656"; \
 sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$peers\"/" $HOME/.planqd/config/config.toml
 
-SNAP_RPC="https://65.109.69.240:34657"; \
+SNAP_RPC="http://65.109.69.240:34657"; \
 LATEST_HEIGHT=$(curl -s $SNAP_RPC/block | jq -r .result.block.header.height); \
 BLOCK_HEIGHT=$((LATEST_HEIGHT - 500)); \
 TRUST_HASH=$(curl -s "$SNAP_RPC/block?height=$BLOCK_HEIGHT" | jq -r .result.block_id.hash); \
